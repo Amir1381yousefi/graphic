@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="levelStageStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane fx:id="levelAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../../properties/menu.css">
+         <children>
+            <Button fx:id="oneButton" layoutX="379.0" layoutY="474.0" mnemonicParsing="false" onAction="#firstMouseClicked" onMouseEntered="#oneMouseEntered" onMouseExited="#oneMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="1" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="29.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.73" height="26.2" radius="12.0425" width="23.97">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="twoButton" layoutX="379.0" layoutY="401.0" mnemonicParsing="false" onAction="#scondMouseClicked" onMouseEntered="#twoMouseEntered" onMouseExited="#twoMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="2" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="29.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.73" height="26.2" radius="12.0425" width="23.97">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="fourButton" layoutX="535.0" layoutY="332.0" mnemonicParsing="false" onAction="#fourthMouseClicked" onMouseEntered="#fourMouseEntered" onMouseExited="#fourMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="4" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="29.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.73" height="26.2" radius="12.0425" width="23.97">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="fiveButton" layoutX="615.0" layoutY="307.0" mnemonicParsing="false" onAction="#fifthMouseClicked" onMouseEntered="#fiveMouseEntered" onMouseExited="#fiveMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="5" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="29.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.73" height="26.2" radius="12.0425" width="23.97">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <Button fx:id="threeButton" layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#thirdMouseClicked" onMouseEntered="#threeMouseEntered" onMouseExited="#threeMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="3" textFill="WHITE">
+               <font>
+                  <Font name="Franklin Gothic Demi Cond" size="29.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.73" height="26.2" radius="12.0425" width="23.97">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

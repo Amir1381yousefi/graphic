@@ -1,0 +1,16 @@
+.anchor1{
+    -fx-background-image: url("firstBackground.jpg");
+}
+.button{
+    -fx-shape: circle;
+}
+#levelAnchorPane{
+    -fx-background-image: url("levelBackground.jpg");
+}
+.levelButton{
+    -fx-shape: "M 10, 10 a 10,10 0 1,1 50,0 a 10,10 0 1,1 -50,0";
+    -fx-background-color: red;
+}
+.anchor2{
+    -fx-background-image: url("signupBackground.jpg");
+}
