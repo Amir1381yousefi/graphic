@@ -21,11 +21,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-//
-
 public class Controller {
+    static String currentUsername;
     public Button exitButton;
     public Button loginButton;
     public Button settingButton;
@@ -43,12 +43,7 @@ public class Controller {
     public StackPane firstMenuStackPane;
     public Label alertLabel;
     public StackPane levelStageStackPane;
-    public String currentUserName;
-    public Button oneButton;
-    public Button twoButton;
-    public Button fourButton;
-    public Button fiveButton;
-    public Button threeButton;
+    public Button signUpBackButton;
 
     public void signUpMouseEntered(MouseEvent mouseEvent) {
         sequentialTransition=new SequentialTransition();
@@ -114,86 +109,6 @@ public class Controller {
         scaleTransitionSecond.play();
     }
 
-    public void threeMouseEntered(MouseEvent mouseEvent) {
-        sequentialTransition=new SequentialTransition();
-        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),threeButton);
-        scaleTransitionFirst.setToX(1.5);
-        scaleTransitionFirst.setToY(1.5);
-        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
-        sequentialTransition.play();
-    }
-
-    public void threeMouseExited(MouseEvent mouseEvent) {
-        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),threeButton);
-        scaleTransitionSecond.setToX(1);
-        scaleTransitionSecond.setToY(1);
-        scaleTransitionSecond.play();
-    }
-
-    public void oneMouseEntered(MouseEvent mouseEvent) {
-        sequentialTransition=new SequentialTransition();
-        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),oneButton);
-        scaleTransitionFirst.setToX(1.5);
-        scaleTransitionFirst.setToY(1.5);
-        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
-        sequentialTransition.play();
-    }
-
-    public void oneMouseExited(MouseEvent mouseEvent) {
-        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),oneButton);
-        scaleTransitionSecond.setToX(1);
-        scaleTransitionSecond.setToY(1);
-        scaleTransitionSecond.play();
-    }
-
-    public void fiveMouseExited(MouseEvent mouseEvent) {
-        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),fiveButton);
-        scaleTransitionSecond.setToX(1);
-        scaleTransitionSecond.setToY(1);
-        scaleTransitionSecond.play();
-    }
-
-    public void fiveMouseEntered(MouseEvent mouseEvent) {
-        sequentialTransition=new SequentialTransition();
-        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),fiveButton);
-        scaleTransitionFirst.setToX(1.5);
-        scaleTransitionFirst.setToY(1.5);
-        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
-        sequentialTransition.play();
-    }
-
-    public void twoMouseEntered(MouseEvent mouseEvent) {
-        sequentialTransition=new SequentialTransition();
-        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),twoButton);
-        scaleTransitionFirst.setToX(1.5);
-        scaleTransitionFirst.setToY(1.5);
-        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
-        sequentialTransition.play();
-    }
-
-    public void twoMouseExited(MouseEvent mouseEvent) {
-        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),twoButton);
-        scaleTransitionSecond.setToX(1);
-        scaleTransitionSecond.setToY(1);
-        scaleTransitionSecond.play();
-    }
-
-    public void fourMouseEntered(MouseEvent mouseEvent) {
-        sequentialTransition=new SequentialTransition();
-        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),fourButton);
-        scaleTransitionFirst.setToX(1.5);
-        scaleTransitionFirst.setToY(1.5);
-        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
-        sequentialTransition.play();
-    }
-
-    public void fourMouseExited(MouseEvent mouseEvent) {
-        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),fourButton);
-        scaleTransitionSecond.setToX(1);
-        scaleTransitionSecond.setToY(1);
-        scaleTransitionSecond.play();
-    }
-
     public void enterButtonMouseEntered(MouseEvent mouseEvent) {
         sequentialTransition=new SequentialTransition();
         scaleTransitionFirst=new ScaleTransition(Duration.millis(200),enterButton);
@@ -209,6 +124,9 @@ public class Controller {
         scaleTransitionSecond.setToY(1);
         scaleTransitionSecond.play();
     }
+
+
+
 
 
 
@@ -256,7 +174,6 @@ public class Controller {
         nowStage.setTitle("SignUp");
         makeFadeInTransition();
         nowStage.setScene(new Scene(root, 1300, 700));
-
     }
 
     public void signUpMouseClicked(ActionEvent actionEvent) {
@@ -268,7 +185,9 @@ public class Controller {
     }
 
     public void loginMouseClicked(ActionEvent actionEvent) {
+        LoginController  loginController=new LoginController();
         nowStage=(Stage) loginButton.getScene().getWindow();
+        loginController.FadeOutTransitionForLogin(firstMenuStackPane,nowStage);
     }
 
     public void exitMouseClicked(ActionEvent actionEvent) {
@@ -286,7 +205,7 @@ public class Controller {
             Statement statement = connection.createStatement();
             String sql = "insert into users.user values ('"+username+"','"+pass+"','"+1+"')";
             statement.execute(sql);
-            currentUserName=username;
+            currentUsername=(username);
             statement.close();
             nowStage=(Stage) enterButton.getScene().getWindow();
             signUpFadeOut();
@@ -301,7 +220,6 @@ public class Controller {
                 pauseTransition.play();
             }
         }
-        System.out.println("cu : "+currentUserName);
     }
 
     public void signUpFadeOut(){
@@ -355,33 +273,67 @@ public class Controller {
         return pattern.matcher(s).matches();
     }
 
-    public void firstMouseClicked(ActionEvent actionEvent) {
-        String url="jdbc:mysql://localhost:3306";
-        String user="root";
-        String password="@Mir1381";
+    public void signUpBackButtonClicked(ActionEvent actionEvent) {
+        signUpFadeOutToMainMenu();
+    }
+
+    private void signUpFadeOutToMainMenu() {
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(signupMenuStackPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setOnFinished(event ->{
+            mainMenuSceneSet();
+        });
+        fadeTransition.play();
+    }
+
+    private void mainMenuSceneSet() {
+        nowStage=(Stage) enterButton.getScene().getWindow();
+        FXMLLoader loader = null;
         try {
-            Connection connection=DriverManager.getConnection(url,user,password);
-            Statement statement=connection.createStatement();
-            String sql="select maxLevel from users.user where username='"+currentUserName+"'";
-            ResultSet resultSet=statement.executeQuery(sql);
-            while (resultSet.next()){
-                System.out.println(resultSet.getInt("maxLevel"));
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\sample.fxml").toURI().toURL());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            System.out.println("1 : "+e.getMessage());
         }
+        Parent root = null;
+        try {
+            root = loader.load();
+            firstMenuStackPane=(StackPane) root;
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("2 : "+e.getMessage());
+        }
+        firstMenuStackPane.setOpacity(0);
+        nowStage.setTitle("Menu");
+        mainMenuFadeIn();
+        nowStage.setScene(new Scene(root, 1300, 700));
     }
 
-    public void scondMouseClicked(ActionEvent actionEvent) {
-        System.out.println(currentUserName);
+    private void mainMenuFadeIn() {
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setNode(firstMenuStackPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.setDuration(Duration.millis(2000));
+        fadeTransition.play();
     }
 
-    public void fourthMouseClicked(ActionEvent actionEvent) {
+    public void signUpBackButtonEntered(MouseEvent mouseEvent) {
+        sequentialTransition=new SequentialTransition();
+        scaleTransitionFirst=new ScaleTransition(Duration.millis(200),signUpBackButton);
+        scaleTransitionFirst.setToX(1.5);
+        scaleTransitionFirst.setToY(1.5);
+        sequentialTransition.getChildren().addAll(scaleTransitionFirst);
+        sequentialTransition.play();
     }
 
-    public void fifthMouseClicked(ActionEvent actionEvent) {
-    }
-
-    public void thirdMouseClicked(ActionEvent actionEvent) {
+    public void signUpBackButtonExited(MouseEvent mouseEvent) {
+        scaleTransitionSecond=new ScaleTransition(Duration.millis(200),signUpBackButton);
+        scaleTransitionSecond.setToX(1);
+        scaleTransitionSecond.setToY(1);
+        scaleTransitionSecond.play();
     }
 }

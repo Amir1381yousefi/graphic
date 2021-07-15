@@ -14,3 +14,6 @@
 .anchor2{
     -fx-background-image: url("signupBackground.jpg");
 }
+.backButton{
+    -fx-background-image: url("backImage.jpg");
+}
