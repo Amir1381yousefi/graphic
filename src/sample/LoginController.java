@@ -258,4 +258,5 @@ public class LoginController {
         scaleTransitionSecond.setToY(1);
         scaleTransitionSecond.play();
     }
+
 }
