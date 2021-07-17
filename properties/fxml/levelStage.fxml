@@ -11,9 +11,9 @@
 
 <StackPane fx:id="levelStageStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerLevel">
    <children>
-      <AnchorPane fx:id="levelAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../../properties/menu.css">
+      <AnchorPane fx:id="levelAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" stylesheets="@../picure/menu.css">
          <children>
-            <Button fx:id="oneButton" layoutX="379.0" layoutY="474.0" mnemonicParsing="false" onAction="#firstMouseClicked" onMouseEntered="#oneMouseEntered" onMouseExited="#oneMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="1" textFill="WHITE">
+            <Button fx:id="oneButton" layoutX="379.0" layoutY="474.0" mnemonicParsing="false" onAction="#firstMouseClicked" onMouseEntered="#oneMouseEntered" onMouseExited="#oneMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../picure/menu.css" text="1" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="29.0" />
                </font>
@@ -25,7 +25,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button fx:id="twoButton" layoutX="379.0" layoutY="401.0" mnemonicParsing="false" onAction="#scondMouseClicked" onMouseEntered="#twoMouseEntered" onMouseExited="#twoMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="2" textFill="WHITE">
+            <Button fx:id="twoButton" layoutX="379.0" layoutY="401.0" mnemonicParsing="false" onAction="#scondMouseClicked" onMouseEntered="#twoMouseEntered" onMouseExited="#twoMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../picure/menu.css" text="2" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="29.0" />
                </font>
@@ -37,7 +37,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button fx:id="fourButton" layoutX="535.0" layoutY="332.0" mnemonicParsing="false" onAction="#fourthMouseClicked" onMouseEntered="#fourMouseEntered" onMouseExited="#fourMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="4" textFill="WHITE">
+            <Button fx:id="fourButton" layoutX="535.0" layoutY="332.0" mnemonicParsing="false" onAction="#fourthMouseClicked" onMouseEntered="#fourMouseEntered" onMouseExited="#fourMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../picure/menu.css" text="4" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="29.0" />
                </font>
@@ -49,7 +49,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button fx:id="fiveButton" layoutX="615.0" layoutY="307.0" mnemonicParsing="false" onAction="#fifthMouseClicked" onMouseEntered="#fiveMouseEntered" onMouseExited="#fiveMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="5" textFill="WHITE">
+            <Button fx:id="fiveButton" layoutX="615.0" layoutY="307.0" mnemonicParsing="false" onAction="#fifthMouseClicked" onMouseEntered="#fiveMouseEntered" onMouseExited="#fiveMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../picure/menu.css" text="5" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="29.0" />
                </font>
@@ -61,7 +61,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <Button fx:id="threeButton" layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#thirdMouseClicked" onMouseEntered="#threeMouseEntered" onMouseExited="#threeMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../../properties/menu.css" text="3" textFill="WHITE">
+            <Button fx:id="threeButton" layoutX="451.0" layoutY="357.0" mnemonicParsing="false" onAction="#thirdMouseClicked" onMouseEntered="#threeMouseEntered" onMouseExited="#threeMouseExited" prefHeight="50.0" prefWidth="50.0" styleClass="levelButton" stylesheets="@../picure/menu.css" text="3" textFill="WHITE">
                <font>
                   <Font name="Franklin Gothic Demi Cond" size="29.0" />
                </font>
@@ -77,7 +77,7 @@
                <effect>
                   <ImageInput>
                      <source>
-                        <Image url="file:/C:/Users/ali/IdeaProjects/graphicProject/properties/backImage-removebg-preview.png" />
+                        <Image url="@../picure/backImage-removebg-preview.png" />
                      </source>
                   </ImageInput>
                </effect>

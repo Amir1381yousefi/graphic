@@ -20,7 +20,7 @@
 
 <StackPane fx:id="signupMenuStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" styleClass="anchor2" stylesheets="@../../properties/menu.css">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" styleClass="anchor2" stylesheets="@../picure/menu.css">
          <children>
             <Label alignment="CENTER" layoutX="549.0" layoutY="71.0" prefHeight="75.0" prefWidth="202.0" text="Signup">
                <effect>
@@ -82,12 +82,12 @@
             </Label>
             <ImageView cache="true" depthTest="DISABLE" fitHeight="150.0" fitWidth="189.0" layoutX="109.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../properties/575a20918d349a354cc636a0d49b35a0.gif" />
+                  <Image url="@../gif/575a20918d349a354cc636a0d49b35a0.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="988.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../properties/097b0c430f994074060bf851cd953761.gif" />
+                  <Image url="@../gif/097b0c430f994074060bf851cd953761.gif" />
                </image>
             </ImageView>
             <TextField fx:id="usernameTextField" layoutX="538.0" layoutY="227.0" prefHeight="36.0" prefWidth="224.0" promptText="Enter Username!">
@@ -102,12 +102,12 @@
             </TextField>
             <ImageView fitHeight="47.0" fitWidth="150.0" layoutX="774.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../properties/username.jpg" />
+                  <Image url="@../picure/username.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="47.0" fitWidth="150.0" layoutX="774.0" layoutY="302.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../properties/pass.jpg" />
+                  <Image url="@../picure/pass.jpg" />
                </image>
             </ImageView>
             <Button fx:id="enterButton" layoutX="590.0" layoutY="447.0" mnemonicParsing="false" onAction="#enterButtonMouseClicked" onMouseEntered="#enterButtonMouseEntered" onMouseExited="#enterButtonMouseExited" prefHeight="81.0" prefWidth="120.0" text="Enter" textFill="RED">
@@ -133,7 +133,7 @@
                <effect>
                   <ImageInput>
                      <source>
-                        <Image url="file:/C:/Users/ali/IdeaProjects/graphicProject/properties/backImage-removebg-preview.png" />
+                        <Image url="@../picure/backImage-removebg-preview.png" />
                      </source>
                   </ImageInput>
                </effect>

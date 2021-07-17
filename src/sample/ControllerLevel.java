@@ -189,7 +189,8 @@ public class ControllerLevel {
         nowStage=(Stage) oneButton.getScene().getWindow();
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\sample.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("1 : "+e.getMessage());
@@ -249,7 +250,8 @@ public class ControllerLevel {
         nowStage=(Stage) oneButton.getScene().getWindow();
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\game.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\game.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\game.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("1 : "+e.getMessage());

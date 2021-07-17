@@ -93,7 +93,8 @@ public abstract class DomesticAnimal {
     public ImageView getImageView(){
         if (this.getClass()==Hen.class){
             try {
-                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\henLeft.gif");
+//                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\gif\\henLeft.gif");
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\gif\\henLeft.gif");
                 Image image=new Image(fileInputStream);
                 return new ImageView(image);
             } catch (FileNotFoundException e) {
@@ -102,7 +103,8 @@ public abstract class DomesticAnimal {
         }
         if (this.getClass()==Buffalo.class){
             try {
-                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\buffaloLeft.gif");
+//                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\gif\\buffaloLeft.gif");
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\gif\\buffaloLeft.gif");
                 Image image=new Image(fileInputStream);
                 return new ImageView(image);
             } catch (FileNotFoundException e) {
@@ -111,7 +113,8 @@ public abstract class DomesticAnimal {
         }
         if (this.getClass()==Turkey.class){
             try {
-                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\turkeyLeft.gif");
+//                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\gif\\turkeyLeft.gif");
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\gif\\turkeyLeft.gif");
                 Image image=new Image(fileInputStream);
                 return new ImageView(image);
             } catch (FileNotFoundException e) {

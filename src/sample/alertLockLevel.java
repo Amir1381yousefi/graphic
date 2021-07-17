@@ -21,7 +21,8 @@ public class alertLockLevel {
     public void alertLockLevel(){
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\lockLevel.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\lockLevel.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\lockLevel.fxml").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

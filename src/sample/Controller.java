@@ -156,7 +156,9 @@ public class Controller {
         nowStage=(Stage) signUpButton.getScene().getWindow();
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\signupPage.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\signupPage.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\signupPage.fxml").toURI().toURL());
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("1 : "+e.getMessage());
@@ -237,7 +239,9 @@ public class Controller {
     public void levelSceneSet(){
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\levelStage.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\levelStage.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\levelStage.fxml").toURI().toURL());
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("1 : "+e.getMessage());
@@ -293,7 +297,9 @@ public class Controller {
         nowStage=(Stage) enterButton.getScene().getWindow();
         FXMLLoader loader = null;
         try {
-            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\sample.fxml").toURI().toURL());
+//            loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
+            loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("1 : "+e.getMessage());

@@ -14,9 +14,9 @@
 
 <StackPane fx:id="firstMenuStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <AnchorPane fx:id="firstMenuAnchorPane" maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="400.0" prefWidth="599.0" styleClass="anchor1" stylesheets="@../../properties/menu.css">
+      <AnchorPane fx:id="firstMenuAnchorPane" maxHeight="700.0" maxWidth="1300.0" minHeight="700.0" minWidth="1300.0" prefHeight="400.0" prefWidth="599.0" styleClass="anchor1" stylesheets="@../picure/menu.css">
          <children>
-            <Button fx:id="signUpButton" alignment="CENTER" contentDisplay="CENTER" layoutX="547.5" layoutY="125.0" mnemonicParsing="false" onAction="#signUpMouseClicked" onMouseEntered="#signUpMouseEntered" onMouseExited="#signUpMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../../properties/menu.css" text="SignUp">
+            <Button fx:id="signUpButton" alignment="CENTER" contentDisplay="CENTER" layoutX="547.5" layoutY="125.0" mnemonicParsing="false" onAction="#signUpMouseClicked" onMouseEntered="#signUpMouseEntered" onMouseExited="#signUpMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../picure/menu.css" text="SignUp">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -63,7 +63,7 @@
                   <DropShadow height="0.0" radius="17.29" spread="0.85" width="71.16" />
                </effect>
             </Button>
-            <Button fx:id="settingButton" layoutX="547.5" layoutY="388.0" mnemonicParsing="false" onAction="#settingMouseClicked" onMouseEntered="#settingMouseEntered" onMouseExited="#settingMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../../properties/menu.css" text="Setting">
+            <Button fx:id="settingButton" layoutX="547.5" layoutY="388.0" mnemonicParsing="false" onAction="#settingMouseClicked" onMouseEntered="#settingMouseEntered" onMouseExited="#settingMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../picure/menu.css" text="Setting">
                <font>
                   <Font name="Jokerman" size="41.0" />
                </font>
@@ -143,7 +143,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="548.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginMouseClicked" onMouseEntered="#loginMouseEntered" onMouseExited="#loginMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../../properties/menu.css" text="Login">
+            <Button fx:id="loginButton" alignment="CENTER" contentDisplay="CENTER" layoutX="548.0" layoutY="267.0" mnemonicParsing="false" onAction="#loginMouseClicked" onMouseEntered="#loginMouseEntered" onMouseExited="#loginMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../picure/menu.css" text="Login">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -190,7 +190,7 @@
                   <DropShadow height="35.58" radius="26.185" spread="0.85" width="71.16" />
                </effect>
             </Button>
-            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="547.5" layoutY="522.0" mnemonicParsing="false" onAction="#exitMouseClicked" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../../properties/menu.css" text="Exit">
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="547.5" layoutY="522.0" mnemonicParsing="false" onAction="#exitMouseClicked" onMouseEntered="#exitMouseEntered" onMouseExited="#exitMouseExited" prefHeight="94.0" prefWidth="205.0" stylesheets="@../picure/menu.css" text="Exit">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

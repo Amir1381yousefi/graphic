@@ -12,7 +12,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\src\\sample\\sample.fxml").toURI().toURL());
+//        FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(new File("C:\\Users\\Mr Ostadi\\IdeaProjects\\graphicProject\\properties\\fxml\\sample.fxml").toURI().toURL());
+
         Parent root = loader.load();
         primaryStage.setTitle("Start Menu");
         primaryStage.setScene(new Scene(root, 1300, 700));

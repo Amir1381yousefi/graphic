@@ -1,14 +1,14 @@
 <component name="libraryTable">
   <library name="javafx-swt">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx-swt.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.base.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.controls.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.fxml.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.graphics.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.media.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.swing.jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/lib/javafx.web.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx-swt.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.base.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.controls.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.fxml.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.graphics.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.media.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.swing.jar" />
+      <root url="file://$USER_HOME$/Desktop/Fx/javafx.web.jar" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
