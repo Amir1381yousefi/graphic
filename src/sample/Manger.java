@@ -1,10 +1,11 @@
 package sample;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.SequentialTransition;
-import javafx.animation.TranslateTransition;
+import com.sun.webkit.Timer;
+import javafx.animation.*;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -23,9 +24,10 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Set;
+import java.util.TimerTask;
 import java.util.logging.Logger;
 
-public class Manger {
+public class Manger  {
 
     public Button pocketMilkToIcecreamButton;
     public Button milkToPocketMilkButton;
@@ -50,6 +52,26 @@ public class Manger {
     public Button buyBuffaloButton;
     public Button buyCowButton;
     public Button buyDogButton;
+    static Logger logger = Logger.getLogger(Logger.class.getName());
+    public Button refresh;
+    public Button turnButton;
+    ArrayList<DomesticAnimal> domestics = new ArrayList<DomesticAnimal>();
+    ArrayList<WildAnimal> wilds = new ArrayList<WildAnimal>();
+    ArrayList<Product> products = new ArrayList<Product>();
+    ArrayList<Cat> cats = new ArrayList<Cat>();
+    ArrayList<Dog> dogs = new ArrayList<Dog>();
+    ArrayList<Factory> factories = new ArrayList<Factory>();
+
+    Truck truck = new Truck();
+    Well well = new Well();
+    Store store = new Store();
+    int[][] grasses = new int[6][6];
+
+    private int coins = 100000;
+    private int time = 0;
+
+    public Manger() throws FileNotFoundException {
+    }
 
     public void pocketMilkToIcecreamButtonClicked(ActionEvent actionEvent) {
     }
@@ -249,32 +271,211 @@ public class Manger {
         nowStage= (Stage) truckButton.getScene().getWindow();
     }
 
-    private void playGame() {
-        Button button=new Button("DAFDSFDS");
-        TranslateTransition translateTransition=new TranslateTransition();
-        try {
-            InputStream henLeftGifFile=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\henLeft.gif");
-            Image image=new Image(henLeftGifFile);
-            ImageView henLeftGifImageView=new ImageView(image);
-            henLeftGifImageView.setLayoutY(350);
-            gameAnchorPane.getChildren().addAll(button,henLeftGifImageView);
-            translateTransition.setFromX(600);
-            translateTransition.setNode(henLeftGifImageView);
-            translateTransition.setDuration(Duration.millis(10000));
-            translateTransition.setToX(300);
-            translateTransition.setOnFinished(e ->{
-                henLeftGifImageView.setX(300);
-            });
-            translateTransition.setDuration(Duration.millis(10000));
-            System.out.println("!!");
-            translateTransition.play();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public void buyDogButtonClicked(ActionEvent actionEvent) {
+
+    }
+
+    public void buyCowButtonClicked(ActionEvent actionEvent) {
+    }
+
+    public void buyBuffaloButtonClicked(ActionEvent actionEvent) {
+            if (coins < 400)
+                System.out.println(ConsoleColors.RED + "you don't have enough money!" + ConsoleColors.RESET);
+            else {
+                Buffalo buffalo = new Buffalo();
+                coins -= buffalo.buyPrice;
+                domestics.add(buffalo);
+                System.out.println(ConsoleColors.YELLOW + "done" + ConsoleColors.RESET);
+
+            }
+    }
+
+    public void buyCatButtonClicked(ActionEvent actionEvent) {
+        if (coins < Cat.buyPrice){
+            System.out.println(ConsoleColors.RED + "you don't have enough money!" + ConsoleColors.RESET);
+        }
+        else {
+            Cat cat = new Cat();
+            coins -= Cat.buyPrice;
+            cats.add(cat);
         }
     }
 
-    public void stacjPaneMouseEntered(MouseEvent mouseEvent) {
-        playGame();
+    public void buyHenButtonClicked(ActionEvent actionEvent) {
+        if (coins < 100)
+            System.out.println(ConsoleColors.RED + "you don't have enough money!" + ConsoleColors.RESET);
+        else {
+            Hen hen = new Hen();
+            coins -= hen.buyPrice;
+            domestics.add(hen);
+            System.out.println(ConsoleColors.YELLOW + "done" + ConsoleColors.RESET);
+        }
+    }
+
+    public void walkAnimals(){
+        for (Dog dog : dogs)
+            walkH(dog);
+
+        for (int i = 0; i < wilds.size(); i++) {
+            if (wilds.get(i).getHealth() != 0)
+                walkH(wilds.get(i));
+            for (int j = 0; j < domestics.size(); j++) {
+                if (wilds.get(i).health != 0 && wilds.get(i).getX() == domestics.get(j).getX() && wilds.get(i).getY() == domestics.get(j).getY())
+                    domestics.remove(j);
+            }
+
+            for (int j = 0; j < cats.size(); j++) {
+                if (wilds.get(i).health != 0 && wilds.get(i).getX() == cats.get(j).getX() && wilds.get(i).getY() == cats.get(j).getY())
+                    cats.remove(j);
+            }
+            for (int j = 0; j < dogs.size(); j++) {
+                if (wilds.get(i).health != 0 && wilds.get(i).getX() == dogs.get(j).getX() && wilds.get(i).getY() == dogs.get(j).getY()) {
+                    wilds.remove(i);
+                    dogs.remove(j);
+                }
+            }
+        }
+    }
+
+    public void eatingDomesticAnimas() throws FileNotFoundException {
+
+        for (int i = 0; i < domestics.size(); i++) {
+            DomesticAnimal d = domestics.get(i);
+            d.setHealth(d.getHealth() - 0.5);
+            if (d.getHealth() <= 0) {
+                domestics.remove(i);
+                System.out.println(ConsoleColors.YELLOW + d.getName() + " died! :((" + ConsoleColors.RESET);
+            } else if (d.getHealth() <= 2.5) {
+                eatingH(d);
+                if (grasses[d.getY()][d.getX()] > 0) {
+                    grasses[d.getY()][d.getX()]--;
+                    d.setHealth(5);
+                }
+            } else
+                walkHDomesticAnimals(domestics.get(i));
+        }
+    }
+
+    public void walkHDomesticAnimals(DomesticAnimal d) {
+        int x = d.getX();
+        int y = d.getY();
+        Random random = new Random();
+        int delX = random.nextInt(3) - 1;
+        x += delX;
+        int delY = random.nextInt(3) - 1;
+        y += delY;
+
+
+        if (x > 5) x--;
+        else if (x < 0) x++;
+
+        if (y > 5) y--;
+        else if (y < 0) y++;
+
+        d.setX(x);
+        d.setY(y);
+    }
+//
+//    public void leftCatMove(){
+//        TranslateTransition translateTransition=new TranslateTransition();
+//        try {
+//            InputStream henLeftGifFile=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\henLeft.gif");
+//            Image image=new Image(henLeftGifFile);
+//            ImageView henLeftGifImageView=new ImageView(image);
+//            henLeftGifImageView.setLayoutY(350);
+//            gameAnchorPane.getChildren().addAll(henLeftGifImageView);
+//            translateTransition.setFromX(600);
+//            translateTransition.setNode(henLeftGifImageView);
+//            translateTransition.setDuration(Duration.millis(10000));
+//            translateTransition.setToX(300);
+//            translateTransition.setOnFinished(e ->{
+//                henLeftGifImageView.setX(300);
+//            });
+//            translateTransition.setDuration(Duration.millis(10000));
+//            System.out.println("!!");
+//            translateTransition.play();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void rightCatMove(Cat cat){
+//        TranslateTransition translateTransition=new TranslateTransition();
+//        try {
+//            InputStream rightCatGifFile=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\rightCat.gif");
+//            Image image=new Image(rightCatGifFile);
+//            ImageView rightCatGifImageView=new ImageView(image);
+//            rightCatGifImageView.setLayoutY(cat.getY());
+//            rightCatGifImageView.setLayoutX(cat.getX());
+//            gameAnchorPane.getChildren().addAll(rightCatGifImageView);
+//            translateTransition.setFromX(cat.getX());
+//            translateTransition.setFromY(cat.getY());
+//            translateTransition.setNode(rightCatGifImageView);
+//            translateTransition.setDuration(Duration.millis(1000));
+//            translateTransition.setToX(300);
+//            translateTransition.setOnFinished(e ->{
+//                rightCatGifImageView.setX(300);
+//            });
+//            translateTransition.setDuration(Duration.millis(1000));
+//            translateTransition.play();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
+    public void turnButtonClicked(ActionEvent actionEvent) {
+        turn(1);
+    }
+
+    public void turn(int n) {
+        boolean t1 = false, t2 = false, t3 = false;
+        for (int i = 0; i < n; i++) {
+            time++;
+            if (time>6 && !t1){
+                t1=true;
+                wilds.add(new Lion());
+            }
+            else if (time>12 && !t2){
+                t2=true;
+                wilds.add(new Tiger());
+            }
+            else if (time>18 && !t3){
+                t3=true;
+                wilds.add(new Bear());
+            }
+            goTruckTurn();
+            produce();
+            destroyProducts();
+            walk();
+            eating();
+            healthIncrease();
+        }
+        fillWell();
+        workFactories();
+        workCats();
+        runWilds();
+        show();
+        showOnScene();
+        updateSceneForAnimals();
+    }
+
+    public void showOnScene(){
+        for (int i=0;i<domestics.size();i++){
+            if (!domestics.get(i).addScene){
+                domestics.get(i).getImageView().setX(100*(domestics.get(i).getX()+1));
+                domestics.get(i).getImageView().setY(54*(domestics.get(i).getY()));
+                gameAnchorPane.getChildren().addAll(domestics.get(i).getImageView());
+                domestics.get(i).addScene=true;
+            }
+        }
+    }
+
+    public void updateSceneForAnimals(){
+        for (int i=0;i<domestics.size();i++){
+            if (domestics.get(i).addScene){
+                domestics.get(i).getImageView().setX(100*(domestics.get(i).getX()+1));
+                domestics.get(i).getImageView().setY(54*(domestics.get(i).getY()));
+            }
+        }
     }
 
 
@@ -289,21 +490,8 @@ public class Manger {
 
 
 
-    static Logger logger = Logger.getLogger(Logger.class.getName());
-    ArrayList<DomesticAnimal> domestics = new ArrayList<DomesticAnimal>();
-    ArrayList<WildAnimal> wilds = new ArrayList<WildAnimal>();
-    ArrayList<Product> products = new ArrayList<Product>();
-    ArrayList<Cat> cats = new ArrayList<Cat>();
-    ArrayList<Dog> dogs = new ArrayList<Dog>();
-    ArrayList<Factory> factories = new ArrayList<Factory>();
 
-    Truck truck = new Truck();
-    Well well = new Well();
-    Store store = new Store();
-    int[][] grasses = new int[6][6];
 
-    private int coins = 100000;
-    private int time = 0;
 
     public static int findPrice(String nam) {
         if ("egg".equals(nam)) {
@@ -497,38 +685,6 @@ public class Manger {
             }
         }
         System.out.println(ConsoleColors.RED + "factory " + name + " doesn't exist!" + ConsoleColors.RESET);
-    }
-
-    public void turn(int n) {
-        boolean t1 = false, t2 = false, t3 = false;
-        for (int i = 0; i < n; i++) {
-            time++;
-            if (time>6 && !t1){
-                t1=true;
-                wilds.add(new Lion());
-            }
-            else if (time>12 && !t2){
-                t2=true;
-                wilds.add(new Tiger());
-            }
-            else if (time>18 && !t3){
-                t3=true;
-                wilds.add(new Bear());
-            }
-            goTruckTurn();
-            produce();
-            destroyProducts();
-            walk();
-            eating();
-            healthIncrease();
-
-        }
-        fillWell();
-        workFactories();
-        workCats();
-        runWilds();
-        show();
-
     }
 
     private void goTruckTurn() {
@@ -983,18 +1139,9 @@ public class Manger {
         }
     }
 
-    public void buyDogButtonClicked(ActionEvent actionEvent) {
+    public void stacjPaneMouseEntered(MouseEvent mouseEvent) {
     }
 
-    public void buyCowButtonClicked(ActionEvent actionEvent) {
-    }
-
-    public void buyBuffaloButtonClicked(ActionEvent actionEvent) {
-    }
-
-    public void buyCatButtonClicked(ActionEvent actionEvent) {
-    }
-
-    public void buyHenButtonClicked(ActionEvent actionEvent) {
+    public void refreshPressed(ActionEvent actionEvent) {
     }
 }

@@ -20,7 +20,16 @@ public class Input {
     Logger logger = Logger.getLogger(Logger.class.getName());
     FileHandler fileHandler;
     SimpleFormatter simpleFormatter;
-    static Manger manger=new Manger();
+    static Manger manger;
+
+    static {
+        try {
+            manger = new Manger();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     static Scanner scanner = new Scanner(System.in);
     String nowUserName = "";
     FileWriter fileWriter;

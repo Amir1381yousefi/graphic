@@ -1,4 +1,9 @@
 package sample;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Random;
 
 public abstract class DomesticAnimal {
@@ -83,13 +88,46 @@ public abstract class DomesticAnimal {
                 '}';
     }
 
+    public boolean addScene=false;
+
+    public ImageView getImageView(){
+        if (this.getClass()==Hen.class){
+            try {
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\henLeft.gif");
+                Image image=new Image(fileInputStream);
+                return new ImageView(image);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        if (this.getClass()==Buffalo.class){
+            try {
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\buffaloLeft.gif");
+                Image image=new Image(fileInputStream);
+                return new ImageView(image);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        if (this.getClass()==Turkey.class){
+            try {
+                FileInputStream fileInputStream=new FileInputStream("C:\\Users\\ali\\IdeaProjects\\graphicProject\\properties\\turkeyLeft.gif");
+                Image image=new Image(fileInputStream);
+                return new ImageView(image);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public String getName(){
         if (this.getClass()==Hen.class)
             return "hen";
         if (this.getClass()==Buffalo.class)
-            return "hen";
+            return "buffalo";
         if (this.getClass()==Turkey.class)
-            return "hen";
+            return "turkey";
         return "";
     }
 }

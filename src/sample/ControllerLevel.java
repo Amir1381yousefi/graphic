@@ -34,7 +34,7 @@ public class ControllerLevel {
     alertLockLevel alertLockLevel=new alertLockLevel();
     public Stage nowStage;
     private StackPane mainMenuStageStackPane;
-    public Manger manger=new Manger();
+  //  public Manger manger=new Manger();
     private StackPane gameStageStackPane;
 
     public void threeMouseEntered(MouseEvent mouseEvent) {
@@ -269,7 +269,7 @@ public class ControllerLevel {
     }
 
     private void gameFadeIn() {
-        Manger manger=new Manger();
+     //   Manger manger=new Manger();
         FadeTransition fadeTransition=new FadeTransition();
         fadeTransition.setNode(gameStageStackPane);
         fadeTransition.setFromValue(0);

@@ -163,6 +163,12 @@
                   </ImageInput>
                </effect>
             </Button>
+            <Button fx:id="refresh" layoutX="567.0" layoutY="15.0" mnemonicParsing="false" onAction="#refreshPressed" />
+            <Button fx:id="turnButton" layoutX="754.0" layoutY="15.0" mnemonicParsing="false" onAction="#turnButtonClicked" prefHeight="35.0" prefWidth="112.0" text="Turn">
+               <font>
+                  <Font name="Andalus" size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
